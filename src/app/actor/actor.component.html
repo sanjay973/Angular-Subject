@@ -1,0 +1,20 @@
+<div class="header">
+    <a class="fas fa-shopping-cart fa-2x" routerLink='/cartDetail'>
+    </a>
+    <i>{{cartItems}}</i>
+</div>
+<div class="product_cards">
+    <div *ngFor="let data of response | async">
+        <div class="description">
+            <h2 style="text-align:center">{{data.name}}</h2>
+            <div class="card">
+                <img src="{{data.image}}" alt="" style="width:100%">
+                <h1>{{data.role}}</h1>
+                <p class="price" appCustom *ngIf="data.role==='manager'">{{data.price}}</p>
+                <p class="price" *ngIf="data.role!=='manager'">{{data.price}}</p>
+                <p><button (click)="buttonClick(data)">Hire</button></p>
+            </div>
+        </div>
+    </div>
+
+</div>
